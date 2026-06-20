@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>technical.quiz </title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Registration -->
+    <div id="registerBox" class="card">
+        <h1>Quiz Test S.R😇</h1>
+        <p>Enter your name to start the quiz</p>
+
+        <input type="text" id="username" placeholder="Enter Your Name">
+
+        <button id="startBtn">Start Quiz</button>
+    </div>
+
+    <!-- Quiz -->
+    <div id="quizBox" class="card hidden">
+
+        <div class="top-bar">
+            <h2>Technical Quiz</h2>
+            <div id="timer">15:00</div>
+        </div>
+
+        <div id="questionNumber"></div>
+
+        <h3 id="question"></h3>
+
+        <div class="options">
+            <button class="option" id="option0"></button>
+            <button class="option" id="option1"></button>
+            <button class="option" id="option2"></button>
+            <button class="option" id="option3"></button>
+        </div>
+
+        <div class="navigation">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+        </div>
+
+        <button id="submitBtn">Submit Quiz</button>
+
+    </div>
+
+    <!-- Result -->
+    <div id="resultBox" class="card hidden">
+        <h1>Quiz Completed</h1>
+
+        <h2 id="finalScore"></h2>
+
+        <button onclick="location.reload()">
+            Play Again
+        </button>
+    </div>
+
+    <!-- Leaderboard -->
+    <div id="leaderboardBox" class="card hidden">
+        <h2>Leaderboard</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+
+            <tbody id="leaderboardBody">
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+<!-- Firebase -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
+import { getDatabase }
+from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAMIQbeT0bb05d9vIUbBppFN8xi2ze_Y20",
+  authDomain: "technical-quiz-41027.firebaseapp.com",
+  databaseURL: "https://technical-quiz-41027-default-rtdb.firebaseio.com",
+  projectId: "technical-quiz-41027",
+  storageBucket: "technical-quiz-41027.firebasestorage.app",
+  messagingSenderId: "711642793471",
+  appId: "1:711642793471:web:ee8f1de8ce648aa3c513ca",
+  measurementId: "G-XVP9DF8HQY"
+};
+
+const app = initializeApp(firebaseConfig);
+
+window.db = getDatabase(app);
+
+</script>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
